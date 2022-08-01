@@ -46,7 +46,7 @@
 
 ##### Execution Demo Available on the following location 
 
-assets/videos/demo.mov
+- assets/videos/demo.mov
 
 
 
