@@ -1,0 +1,20 @@
+void createZenDeskUser(String contactId,String name,String email){
+    zenUser = Map();
+    zenUser.put("role","end-user");
+    zenUser.put("email",email);
+    zenUser.put("name",name);
+    header = Map();
+    header.put("Accept","application/json");
+    header.put("Content-Type","application/json");
+    body = Map();
+    body.put("user",zenUser);
+    response = invokeurl
+    [
+        url :"https://testingdragon.zendesk.com/api/v2/users"
+        type :POST
+        parameters:body.toText()
+        headers:header
+        connection:"zendesk"
+    ];
+    info response;
+}

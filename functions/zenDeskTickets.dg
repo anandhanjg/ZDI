@@ -1,0 +1,38 @@
+
+String zenDeskTickets(String email){
+    header = Map();
+    header.put("Accept","application/json");
+    response1 = invokeurl
+    [
+        url :"https://testingdragon.zendesk.com/api/v2/users/search.json?query=" + email
+        type :GET
+        headers:header
+        connection:"zendesk"
+    ];
+    users = response1.getJSON("users").toList();
+    if(users.size() == 0)
+    {
+        return "<record><row no='0'><FL val='Message'>No Data Found</FL></row></record>";
+    }
+    user = users.get(0);
+    info user;
+    ticketUrl = "https://testingdragon.zendesk.com/api/v2/users/" + user.getJSON("id") + "/tickets/requested";
+    response = invokeurl
+    [
+        url :ticketUrl
+        type :GET
+        headers:header
+        connection:"zendesk"
+    ];
+    ts = response.getJSON("tickets");
+    result = "<record>";
+    i = 0;
+    for each  ticket in ts.toJSONList()
+    {
+	    r = "<row no='" + i + "'><FL val='Type'>" + ticket.getJSON("type") + "</FL><FL val='Subject'>" + ticket.getJSON("subject") + "</FL><FL val='Description'>" + ticket.getJSON("description") + "</FL><FL val='Status'>" + ticket.getJSON("status") + "</FL></row>";
+	    i = i + 1;
+	    result = result + r;
+    }
+    result = result + "</record>";
+    return result;
+}
