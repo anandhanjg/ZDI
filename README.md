@@ -35,18 +35,18 @@
 
 ## Step 4 - Create Workflow for Contact Creation and Attach The CreateUser Function with it
 
-![Screenshot](./assets/screenshots/workflow.png)
+![Screenshot](assets/screenshots/workflow.png)
 
 ## Step 5 - Create New Related List in Contact Detail Page and Attach Get Ticket Function with it
 
-![Screenshot](./assets/screenshots/relatedList.png)
+![Screenshot](assets/screenshots/relatedList.png)
 
 
 ## Execution Demo
 
 ##### Execution Demo Available on the following location 
 
-- assets/videos/demo.mov
+![Demo](assets/videos/demo_exection.mp4)
 
 
 
